@@ -1,21 +1,26 @@
-let questions = [{
-    question: "Q1",
+let timer = 100;
+
+
+
+
+const questSet = [{
+    questionE: "Question 1",
     answers: ["ex1", "ex2", "ex3", "ex4"],
     correctAnswer: 0
 },
 
 {
-    question: "Q2",
+    questionE: "Question 2",
     answers: ["ex1", "ex2", "ex3", "ex4"],
     correctAnswer: 2
 },
 {
-    question: "Q3",
+    questionE: "Questions 3",
     answers: ["ex1", "ex2", "ex3", "ex4"],
     correctAnswer: 2
 },
 {
-    question: "Q4",
+    questionE: "Questions 4",
     answers: ["ex1", "ex2", "ex3", "ex4"],
     correctAnswer: 3
 }
@@ -25,19 +30,39 @@ let questions = [{
 
 let currentQuestion = 0;
 let countdownTimer = 0;
-let questionArea = document.querySelector("#question-box")
+let questionTitle = document.querySelector("#question-title");
+let choice = document.querySelector('#choices');
+let hidePage = document.querySelector('#start');
+let startPage = document.querySelector('#start-screen');
+let questionArea = document.querySelector('#questions');
 
-function renderQuestions() {
+
+hidePage.addEventListener('click', function(){
+    startPage.classList.add('hide');
+    questionArea.classList.remove('hide');
+
+    
+
+})
+
+renderQuestions(0);
+
+function renderQuestions(i) {
 
     let quest1 = document.createElement("p");
-    quest1.textContent = questions[questionIndex].question;
-    questionArea.appendChild(quest1);
-
-    for (let i = 0; i < questions[questionIndex].answers.length; i++) {
-        let answerButton = document.createElement["button"];
-        answerButton.textContent = questions[questionIndex].answers[i];
+    quest1.textContent = questSet[currentQuestion].questionE;
+    questionTitle.appendChild(quest1);
+    // console.log(quest1);
+    // let answerButton = document.createElement["button"];
+    // answerButton.textContent = questions[currentQuestion].answers[i];
+    
+    
+    for (let i = 0; i < questSet[currentQuestion].answers.length; i++) {
+        let answerButton = document.createElement("button");
+        // console.log(answerButton);
+        answerButton.textContent = questSet[currentQuestion].answers[i];
+        choice.appendChild(answerButton);
         
         
     }
-    
 }
